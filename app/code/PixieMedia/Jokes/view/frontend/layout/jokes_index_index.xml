@@ -1,0 +1,18 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+
+	<head>
+        <title>Jokes</title>
+    </head>
+
+    <body>
+
+        <referenceContainer name="sidebar.main">
+            <block class="PixieMedia\Jokes\Block\Index\Sidebar" name="jokes_index_sidebar" before="-" template="PixieMedia_Jokes::jokes_index_sidebar.phtml"/>
+        </referenceContainer>
+
+        <referenceContainer name="content">
+            <block class="PixieMedia\Jokes\Block\Index\Index" name="jokes_index_index" template="PixieMedia_Jokes::jokes_index_index.phtml"/>
+        </referenceContainer>
+
+    </body>
+</page>

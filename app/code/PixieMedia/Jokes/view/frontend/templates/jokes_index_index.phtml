@@ -1,0 +1,38 @@
+<?php  $_jokerecords = $block->getCollection(); // get collection which we set in block class ?>
+<?php if ($_jokerecords && count($_jokerecords)): ?>
+    <div class="table-wrapper orders-history">
+        <table class="data table table-order-items history" id="my-orders-table">
+            <caption class="table-caption"><?php echo __('Jokes Record') ?></caption>
+            <thead>
+                <tr>
+                    <th scope="col" class="col id"><?php echo __('ID #') ?></th>
+                    <th scope="col" class="col value"><?php echo __('Value') ?></th>
+                    <th scope="col" class="col icon_url"><?php echo __('Icon Url') ?></th>
+                    <th scope="col" class="col url"><?php echo __('Url') ?></th>
+                    <th scope="col" class="col created_at"><?php echo __('Created Date') ?></th>
+                    <th scope="col" class="col updated_at"><?php echo __('Updated Date') ?></th>
+                    <th scope="col" class="col ">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php  // read collection as magento1.x and display in list 
+                       foreach ($_jokerecords as $_jokerecord): ?>
+                    <tr>
+                        <td class="col id"><?php echo $_jokerecord->getId() ?></td>
+                        <td class="col value"><?php echo $_jokerecord->getValue() ?></td>
+                        <td class="col icon_url"><img src="<?php echo $_jokerecord->getIconUrl() ?>" /></td>
+                        <td class="col url"><?php echo $_jokerecord->getUrl() ?></td>
+                        <td class="col created_at"><?php echo $block->formatDate($_jokerecord->getCreatedAt()) ?></td>
+                        <td class="col updated_at"><?php echo $block->formatDate($_jokerecord->getUpdatedAt()) ?></td>
+                        <td class="col status"><?php echo $_jokerecord->getIsActive() ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); // for display pager block which we create in block file.   ?></div>
+    <?php endif ?>
+<?php else: ?>
+    <div class="message info empty"><span><?php echo __('joke records not available.'); ?></span></div>
+<?php endif ?>

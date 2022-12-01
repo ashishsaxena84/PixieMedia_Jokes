@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="PixieMedia_Jokes::parent" title="Jokes" module="PixieMedia_Jokes" sortOrder="100" resource="PixieMedia_Jokes::parent"/>
+		<add id="PixieMedia_Jokes::jokes" title="Jokes Jokes" module="PixieMedia_Jokes" sortOrder="20" parent="PixieMedia_Jokes::parent" action="jokes/jokes" resource="PixieMedia_Jokes::jokes"/>
+
+    </menu>
+</config>
